@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Producer.hasMany(models.Placement, {
+        foreignKey: 'producerId',
+        as: 'placements'
+      })
     }
   }
   Producer.init({
