@@ -7,5 +7,5 @@ router.post('/', prodCtrl.create)
 router.get('/', prodCtrl.index)
 router.put('/:id', prodCtrl.update)
 router.delete('/:id', prodCtrl.delete)
-router.post('/:id/feedings', prodCtrl.addFeeding)
+router.post('/:id/placements', prodCtrl.addPlacement)
 module.exports = router
