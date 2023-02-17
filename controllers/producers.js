@@ -1,4 +1,4 @@
-const { Producer } = require("../models")
+const { Producer, Placement } = require("../models")
 
 const create = async (req, res) => {
   try {
@@ -39,9 +39,20 @@ const deleteProducer = async (req, res) => {
   }
 }
 
+const addPlacement = async (req, res) => {
+  try {
+    req.body.producerId = req.params.id
+    const placement = await Placement.create(req.body)
+    res.status(200).json(placement)
+  } catch (error) {
+    res.status(500).json(error)
+  }
+}
+
 module.exports = {
   create,
   index,
   update,
-  delete: deleteProducer
+  delete: deleteProducer,
+  addPlacement
 }
